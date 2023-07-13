@@ -23,8 +23,8 @@ const CreateJobs = lazy(() => import('../../pages/jobs/components/Create'));
 
 const PrivateRoute = () => {
   const { userInfo } = useSelector((state) => state.auth);
-
-  return userInfo ? <Outlet /> : <Navigate to="/auth" />;
+  return <Outlet />;
+  // return userInfo ? <Outlet /> : <Navigate to="/auth" />;
 };
 
 const App = () => {
@@ -45,7 +45,8 @@ const App = () => {
             {/* public routes */}
             <Route index element={<Home />} />
             <Route path="jobs" element={<Jobs />} />
-            {!userInfo && <Route path="auth" element={<Auth />} />}
+            {/* {!userInfo && <Route path="auth" element={<Auth />} />} */}
+            <Route path="auth" element={<Auth />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>
