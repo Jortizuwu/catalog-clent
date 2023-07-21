@@ -1,7 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loginUser, registerUser } from '../../thunks/auth';
 
-const initialState = {
+interface User{
+  id: string;
+  active: boolean;
+  name: string;
+  lastName: string;
+  email: string;
+  password: string;
+  photo: string;
+  phone: string;
+  createdAt: Date;
+  updatedAt: Date;  
+}
+
+interface AuthState {
+  loading: boolean;
+  userInfo: User | null;
+  userToken: string | null;
+  error: Error | null;
+  success: boolean;
+}
+
+const initialState: AuthState = {
   loading: false,
   userInfo: null, // for user object
   userToken: null, // for storing the JWT

@@ -1,4 +1,3 @@
-import React from 'react'
 import CurrencyInput from 'react-currency-input-field'
 import { Controller } from 'react-hook-form'
 import { FieldError } from './FieldError'
